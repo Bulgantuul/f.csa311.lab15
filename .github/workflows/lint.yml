@@ -1,0 +1,26 @@
+name: Lint Commit Messages
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install commitlint
+        run: |
+          npm install -g @commitlint/config-conventional @commitlint/cli
+
+      - name: Run commitlint
+        run: |
+          npx commitlint --from=HEAD~${{ github.event.pull_request.commits }} --to=HEAD --verbose

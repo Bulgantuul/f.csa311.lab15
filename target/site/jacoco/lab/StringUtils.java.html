@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StringUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab15 Starter</a> &gt; <a href="index.source.html" class="el_package">lab</a> &gt; <span class="el_source">StringUtils.java</span></div><h1>StringUtils.java</h1><pre class="source lang-java linenums">package lab;
+
+/**
+ * String-тэй ажиллах туслах утга.
+ *
+ * Lab15 — Даалгавар 2-т `reverse` функц өөрөө нэмэх болно.
+ */
+public final class StringUtils {
+
+    private StringUtils() {
+        // util class
+    }
+
+    /**
+     * Хоосон болон null-ийг шалгах.
+     */
+    public static boolean isBlank(String s) {
+<span class="fc bfc" id="L18" title="All 4 branches covered.">        return s == null || s.trim().isEmpty();</span>
+    }
+
+    /**
+     * Үгийн эхний үсгийг том болгох (бусад нь хэвээр).
+     */
+    public static String capitalize(String s) {
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (isBlank(s)) {</span>
+<span class="fc" id="L26">            return s;</span>
+        }
+<span class="fc" id="L28">        return Character.toUpperCase(s.charAt(0)) + s.substring(1);</span>
+    }
+
+    /**
+     * String-ийн урвуулсан хувилбарыг буцаана.
+     * 
+     * @param s урвуулах текст (null байж болно)
+     * @return урвуулсан текст, null бол null буцаана
+     */
+    public static String reverse(String s) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (s == null) {</span>
+<span class="fc" id="L39">            return null;</span>
+        }
+<span class="fc" id="L41">        return new StringBuilder(s).reverse().toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
